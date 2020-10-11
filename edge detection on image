@@ -1,0 +1,15 @@
+import cv2
+import numpy as np
+img=cv2.imread("lady.png")
+img=cv2.GaussianBlur(img,(5,5),0)
+cv2.imshow("image",img)
+sobelx=cv2.Sobel(img,cv2.CV_64F,1,0)
+# sobely=cv2.Sobel(img,cv2.CV_64F,0,1)
+cv2.imshow("X",sobelx)
+# cv2.imshow("Y",sobely)
+laplacian= cv2.Laplacian(img,cv2.CV_64F,ksize=7)
+cv2.imshow("laplacian",laplacian)
+canny=cv2.Canny(img,100,150)
+cv2.imshow("canny",canny)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
